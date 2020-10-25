@@ -12,6 +12,8 @@ function App() {
     const [isAuthenticating, setIsAuthenticating] = useState(true);
     const [isAuthenticated, userHasAuthenticated] = useState(false);
 
+    console.log(process.env.REACT_APP_TEST_VAR);
+
     const history = useHistory();
 
     function handleLogout() {

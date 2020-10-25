@@ -1,7 +1,7 @@
-export default {
+const dev = {
     s3: {
         REGION: "eu-central-1",
-        BUCKET: "serverless-stack-notes-app-uploads-ndru",
+        BUCKET: "dev-notes-infra-s3-uploads4f6eb0fd-1kdlzcydt0p9y",
     },
     apiGateway: {
         REGION: "eu-central-1",
@@ -9,11 +9,17 @@ export default {
     },
     cognito: {
         REGION: "eu-central-1",
-        USER_POOL_ID: "eu-central-1_Jzz33Xd82",
-        APP_CLIENT_ID: "it8ojvit49tqbumif3bmsnru1",
-        IDENTITY_POOL_ID: "eu-central-1:de8a592a-469d-4056-9a72-f066c3793fcd",
+        USER_POOL_ID: "eu-central-1_uBe7kcHzR",
+        APP_CLIENT_ID: "20k6bjbfe13vus842thitdmr05",
+        IDENTITY_POOL_ID: "eu-central-1:56aab227-b306-4151-b165-9d9c1ca5d3eb",
     },
-    MAX_ATTACHMENT_SIZE: 5000000,
     STRIPE_KEY:
         "pk_test_51HenXTCnOHMm2kj1ogMd61r5FP53TlLpPqsYFmRvY6nIPMKIVNIPu5xWDhcChEkuwTuvirj2BtLuK8zkE3ZEWo9h00ig3tJaSd",
+};
+
+const config = process.env.REACT_APP_STAGE == "prod" ? null : dev;
+
+export default {
+    MAX_ATTACHMENT_SIZE: 5000000,
+    ...config,
 };
